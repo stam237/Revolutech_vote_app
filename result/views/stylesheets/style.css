@@ -60,7 +60,7 @@ body{
   transition: all 300ms linear;
   line-height:1.3em;
   background:#072B55;
-  box-shadow: 10px 0 0 #fff, -10px 0 0 #fff;
+  box-shadow: 10px 0 0 #8b7d7d, -10px 0 0 #fff;
   vertical-align:middle;
   font-size:40px;
   font-weight: 600;
