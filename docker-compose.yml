@@ -27,6 +27,7 @@ services:
 
   result:
     build: ./result
+    image: stam97/result:latest
     # use nodemon rather than node for local dev
     entrypoint: nodemon server.js
     depends_on:
@@ -44,6 +45,7 @@ services:
   worker:
     build:
       context: ./worker
+    image: stam97/worker:latest
     depends_on:
       redis:
         condition: service_healthy 
