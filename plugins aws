@@ -1,0 +1,2 @@
+wget http://updates.jenkins-ci.org/latest/pipeline-aws.hpi
+mv pipeline-aws.hpi /var/lib/jenkins/plugins/
