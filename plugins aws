@@ -40,3 +40,21 @@ pipeline {
         }
     
 
+pipeline {
+    agent any
+    environment {
+        DOCKERHUB_CREDS = credentials('dockerhub-credentials')
+    }
+    stages {
+        // Vos autres étapes ici, par exemple, build, test, etc.
+        
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    sh "docker login -u ${DOCKERHUB_CREDS_USR} -p ${DOCKERHUB_CREDS_PSW}"
+                    sh "docker push votre_utilisateur_dockerhub/nouvelleimage:v1"
+                }
+            }
+        }
+    }
+}
