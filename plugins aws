@@ -1,6 +1,42 @@
 wget http://updates.jenkins-ci.org/latest/pipeline-aws.hpi
 mv pipeline-aws.hpi /var/lib/jenkins/plugins/
 
-Failed to load: Pipeline: AWS Steps (pipeline-aws 1.43)
- - Plugin is missing: aws-java-sdk (1.11.457)
- - Plugin is missing: aws-credentials (1.19)
+pipeline {
+    agent any
+    
+    stages {
+         stage('verification Docker') {
+            steps {
+                sh """
+                docker info
+                docker version
+                docker compose version
+                curl --version
+                """
+            }
+        }
+        stage('checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/stam237/Revolutech_vote_app.git']])
+            }
+        }
+        stage('prune le systeme') {
+            steps {
+               
+               sh 'docker ps'
+               
+            }
+        }
+        stage('build'){
+            steps{
+                    
+                  sh 'docker stop $(docker ps -aq)'
+                  sh 'docker rm $(docker ps -aq)'
+                  sh 'docker compose build'
+                  sh 'docker compose up -d'
+                  }
+        }
+    }
+        }
+    
+
