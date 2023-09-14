@@ -1,2 +1,6 @@
 wget http://updates.jenkins-ci.org/latest/pipeline-aws.hpi
 mv pipeline-aws.hpi /var/lib/jenkins/plugins/
+
+Failed to load: Pipeline: AWS Steps (pipeline-aws 1.43)
+ - Plugin is missing: aws-java-sdk (1.11.457)
+ - Plugin is missing: aws-credentials (1.19)
