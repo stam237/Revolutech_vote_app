@@ -1,4 +1,4 @@
-# Voting deleguer App
+# Voting deleguer
 
 A simple distributed application running across multiple Docker containers.
 
